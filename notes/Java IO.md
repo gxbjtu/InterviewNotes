@@ -1,129 +1,127 @@
 <!-- GFM-TOC -->
-* [¸ÅÀÀ](#¸ÅÀÀ)
-* [´ÅÅÌ²Ù×÷](#´ÅÅÌ²Ù×÷)
-* [×Ö½Ú²Ù×÷](#×Ö½Ú²Ù×÷)
-* [×Ö·û²Ù×÷](#×Ö·û²Ù×÷)
-* [¶ÔÏó²Ù×÷](#¶ÔÏó²Ù×÷)
-* [ÍøÂç²Ù×÷](#ÍøÂç²Ù×÷)
-    * [1. InetAddress](#1-inetaddress)
-    * [2. URL](#2-url)
-    * [3. Sockets](#3-sockets)
-    * [4. Datagram](#4-datagram)
-* [NIO](#nio)
-    * [1. Á÷Óë¿é](#1-Á÷Óë¿é)
-    * [2. Í¨µÀÓë»º³åÇø](#2-Í¨µÀÓë»º³åÇø)
-        * [2.1 Í¨µÀ](#21-Í¨µÀ)
-        * [2.2 »º³åÇø](#22-»º³åÇø)
-    * [3. »º³åÇø×´Ì¬±äÁ¿](#3-»º³åÇø×´Ì¬±äÁ¿)
-    * [4. ¶ÁÐ´ÎÄ¼þÊµÀý](#4-¶ÁÐ´ÎÄ¼þÊµÀý)
-    * [5. ×èÈûÓë·Ç×èÈû](#5-×èÈûÓë·Ç×èÈû)
-        * [5.1 ×èÈûÊ½ I/O](#51-×èÈûÊ½-io)
-        * [5.2 ·Ç×èÈûÊ½ I/O](#52-·Ç×èÈûÊ½-io)
-    * [6. Ì×½Ó×ÖÊµÀý](#6-Ì×½Ó×ÖÊµÀý)
-        * [6.1 ServerSocketChannel](#61-serversocketchannel)
-        * [6.2 Selectors](#62-selectors)
-        * [6.3 Ö÷Ñ­»·](#63-Ö÷Ñ­»·)
-        * [6.4 ¼àÌýÐÂÁ¬½Ó](#64-¼àÌýÐÂÁ¬½Ó)
-        * [6.5 ½ÓÊÜÐÂµÄÁ¬½Ó](#65-½ÓÊÜÐÂµÄÁ¬½Ó)
-        * [6.6 É¾³ý´¦Àí¹ýµÄ SelectionKey](#66-É¾³ý´¦Àí¹ýµÄ-selectionkey)
-        * [6.7 ´«ÈëµÄ I/O](#67-´«ÈëµÄ-io)
-* [²Î¿¼×ÊÁÏ](#²Î¿¼×ÊÁÏ)
+* [ä¸€ã€æ¦‚è§ˆ](#ä¸€æ¦‚è§ˆ)
+* [äºŒã€ç£ç›˜æ“ä½œ](#äºŒç£ç›˜æ“ä½œ)
+* [ä¸‰ã€å­—èŠ‚æ“ä½œ](#ä¸‰å­—èŠ‚æ“ä½œ)
+* [å››ã€å­—ç¬¦æ“ä½œ](#å››å­—ç¬¦æ“ä½œ)
+* [äº”ã€å¯¹è±¡æ“ä½œ](#äº”å¯¹è±¡æ“ä½œ)
+* [å…­ã€ç½‘ç»œæ“ä½œ](#å…­ç½‘ç»œæ“ä½œ)
+    * [InetAddress](#inetaddress)
+    * [URL](#url)
+    * [Sockets](#sockets)
+    * [Datagram](#datagram)
+* [ä¸ƒã€NIO](#ä¸ƒnio)
+    * [æµä¸Žå—](#æµä¸Žå—)
+    * [é€šé“ä¸Žç¼“å†²åŒº](#é€šé“ä¸Žç¼“å†²åŒº)
+    * [ç¼“å†²åŒºçŠ¶æ€å˜é‡](#ç¼“å†²åŒºçŠ¶æ€å˜é‡)
+    * [æ–‡ä»¶ NIO å®žä¾‹](#æ–‡ä»¶-nio-å®žä¾‹)
+    * [å¥—æŽ¥å­— NIO å®žä¾‹](#å¥—æŽ¥å­—-nio-å®žä¾‹)
+    * [å†…å­˜æ˜ å°„æ–‡ä»¶](#å†…å­˜æ˜ å°„æ–‡ä»¶)
+    * [å¯¹æ¯”](#å¯¹æ¯”)
+* [å…«ã€å‚è€ƒèµ„æ–™](#å…«å‚è€ƒèµ„æ–™)
 <!-- GFM-TOC -->
 
-# ¸ÅÀÀ
 
-Java µÄ I/O ´ó¸Å¿ÉÒÔ·Ö³ÉÒÔÏÂ¼¸Àà
+# ä¸€ã€æ¦‚è§ˆ
 
-1. ´ÅÅÌ²Ù×÷£ºFile
-2. ×Ö½Ú²Ù×÷£ºInputStream ºÍ OutputStream
-3. ×Ö·û²Ù×÷£ºReader ºÍ Writer
-4. ¶ÔÏó²Ù×÷£ºSerializable
-5. ÍøÂç²Ù×÷£ºSocket
-6. ·Ç×èÈûÊ½ IO£ºNIO
+Java çš„ I/O å¤§æ¦‚å¯ä»¥åˆ†æˆä»¥ä¸‹å‡ ç±»ï¼š
 
-# ´ÅÅÌ²Ù×÷
+1. ç£ç›˜æ“ä½œï¼šFile
+2. å­—èŠ‚æ“ä½œï¼šInputStream å’Œ OutputStream
+3. å­—ç¬¦æ“ä½œï¼šReader å’Œ Writer
+4. å¯¹è±¡æ“ä½œï¼šSerializable
+5. ç½‘ç»œæ“ä½œï¼šSocket
+6. æ–°çš„è¾“å…¥/è¾“å‡ºï¼šNIO
 
-File Àà¿ÉÒÔÓÃÓÚ±íÊ¾ÎÄ¼þºÍÄ¿Â¼£¬µ«ÊÇËüÖ»ÓÃÓÚ±íÊ¾ÎÄ¼þµÄÐÅÏ¢£¬¶ø²»±íÊ¾ÎÄ¼þµÄÄÚÈÝ¡£
+# äºŒã€ç£ç›˜æ“ä½œ
 
-# ×Ö½Ú²Ù×÷
+File ç±»å¯ä»¥ç”¨äºŽè¡¨ç¤ºæ–‡ä»¶å’Œç›®å½•ï¼Œä½†æ˜¯å®ƒåªç”¨äºŽè¡¨ç¤ºæ–‡ä»¶çš„ä¿¡æ¯ï¼Œè€Œä¸è¡¨ç¤ºæ–‡ä»¶çš„å†…å®¹ã€‚
 
-![](https://github.com/CyC2018/InterviewNotes/blob/master/pics/8143787f-12eb-46ea-9bc3-c66d22d35285.jpg)
+# ä¸‰ã€å­—èŠ‚æ“ä½œ
 
-Java I/O Ê¹ÓÃÁË×°ÊÎÕßÄ£Ê½À´ÊµÏÖ¡£ÒÔ InputStream ÎªÀý£¬InputStream ÊÇ³éÏó×é¼þ£¬FileInputStream ÊÇ InputStream µÄ×ÓÀà£¬ÊôÓÚ¾ßÌå×é¼þ£¬Ìá¹©ÁË×Ö½ÚÁ÷µÄÊäÈë²Ù×÷¡£FilterInputStream ÊôÓÚ³éÏó×°ÊÎÕß£¬×°ÊÎÕßÓÃÓÚ×°ÊÎ×é¼þ£¬Îª×é¼þÌá¹©¶îÍâµÄ¹¦ÄÜ£¬ÀýÈç BufferedInputStream Îª FileInputStream Ìá¹©»º´æµÄ¹¦ÄÜ¡£ÊµÀý»¯Ò»¸ö¾ßÓÐ»º´æ¹¦ÄÜµÄ×Ö½ÚÁ÷¶ÔÏóÊ±£¬Ö»ÐèÒªÔÚ FileInputStream ¶ÔÏóÉÏÔÙÌ×Ò»²ã BufferedInputStream ¶ÔÏó¼´¿É¡£
+<div align="center"> <img src="../pics//DP-Decorator-java.io.png" width="500"/> </div><br>
+
+Java I/O ä½¿ç”¨äº†è£…é¥°è€…æ¨¡å¼æ¥å®žçŽ°ã€‚ä»¥ InputStream ä¸ºä¾‹ï¼ŒInputStream æ˜¯æŠ½è±¡ç»„ä»¶ï¼ŒFileInputStream æ˜¯ InputStream çš„å­ç±»ï¼Œå±žäºŽå…·ä½“ç»„ä»¶ï¼Œæä¾›äº†å­—èŠ‚æµçš„è¾“å…¥æ“ä½œã€‚FilterInputStream å±žäºŽæŠ½è±¡è£…é¥°è€…ï¼Œè£…é¥°è€…ç”¨äºŽè£…é¥°ç»„ä»¶ï¼Œä¸ºç»„ä»¶æä¾›é¢å¤–çš„åŠŸèƒ½ï¼Œä¾‹å¦‚ BufferedInputStream ä¸º FileInputStream æä¾›ç¼“å­˜çš„åŠŸèƒ½ã€‚
+
+å®žä¾‹åŒ–ä¸€ä¸ªå…·æœ‰ç¼“å­˜åŠŸèƒ½çš„å­—èŠ‚æµå¯¹è±¡æ—¶ï¼Œåªéœ€è¦åœ¨ FileInputStream å¯¹è±¡ä¸Šå†å¥—ä¸€å±‚ BufferedInputStream å¯¹è±¡å³å¯ã€‚
 
 ```java
 BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
 ```
 
-DataInputStream ×°ÊÎÕßÌá¹©ÁË¶Ô¸ü¶àÊý¾ÝÀàÐÍ½øÐÐÊäÈëµÄ²Ù×÷£¬±ÈÈç int¡¢double µÈ»ù±¾ÀàÐÍ¡£
+DataInputStream è£…é¥°è€…æä¾›äº†å¯¹æ›´å¤šæ•°æ®ç±»åž‹è¿›è¡Œè¾“å…¥çš„æ“ä½œï¼Œæ¯”å¦‚ intã€double ç­‰åŸºæœ¬ç±»åž‹ã€‚
 
-ÅúÁ¿¶ÁÈëÎÄ¼þÖÐµÄÄÚÈÝµ½×Ö½ÚÊý×éÖÐ
+æ‰¹é‡è¯»å…¥æ–‡ä»¶å†…å®¹åˆ°å­—èŠ‚æ•°ç»„ï¼š
 
 ```java
 byte[] buf = new byte[20*1024];
 int bytes = 0;
-// ×î¶à¶ÁÈ¡ buf.length ¸ö×Ö½Ú£¬·µ»ØµÄÊÇÊµ¼Ê¶ÁÈ¡µÄ¸öÊý£¬·µ»Ø -1 µÄÊ±ºò±íÊ¾¶Áµ½ eof£¬¼´ÎÄ¼þÎ²
+// æœ€å¤šè¯»å– buf.length ä¸ªå­—èŠ‚ï¼Œè¿”å›žçš„æ˜¯å®žé™…è¯»å–çš„ä¸ªæ•°ï¼Œè¿”å›ž -1 çš„æ—¶å€™è¡¨ç¤ºè¯»åˆ° eofï¼Œå³æ–‡ä»¶å°¾
 while((bytes = in.read(buf, 0 , buf.length)) != -1) {
     // ...
 }
 ```
 
-# ×Ö·û²Ù×÷
+# å››ã€å­—ç¬¦æ“ä½œ
 
-²»¹ÜÊÇ´ÅÅÌ»¹ÊÇÍøÂç´«Êä£¬×îÐ¡µÄ´æ´¢µ¥Ôª¶¼ÊÇ×Ö½Ú£¬¶ø²»ÊÇ×Ö·û£¬ËùÒÔ I/O ²Ù×÷µÄ¶¼ÊÇ×Ö½Ú¶ø²»ÊÇ×Ö·û¡£µ«ÊÇÔÚ³ÌÐòÖÐ²Ù×÷µÄÊý¾ÝÍ¨³£ÊÇ×Ö·ûÐÎÊ½£¬Òò´ËÐèÒªÌá¹©¶Ô×Ö·û½øÐÐ²Ù×÷µÄ·½·¨¡£
+ä¸ç®¡æ˜¯ç£ç›˜è¿˜æ˜¯ç½‘ç»œä¼ è¾“ï¼Œæœ€å°çš„å­˜å‚¨å•å…ƒéƒ½æ˜¯å­—èŠ‚ï¼Œè€Œä¸æ˜¯å­—ç¬¦ï¼Œæ‰€ä»¥ I/O æ“ä½œçš„éƒ½æ˜¯å­—èŠ‚è€Œä¸æ˜¯å­—ç¬¦ã€‚ä½†æ˜¯åœ¨ç¨‹åºä¸­æ“ä½œçš„é€šå¸¸æ˜¯å­—ç¬¦å½¢å¼çš„æ•°æ®ï¼Œå› æ­¤éœ€è¦æä¾›å¯¹å­—ç¬¦è¿›è¡Œæ“ä½œçš„æ–¹æ³•ã€‚
 
-InputStreamReader ÊµÏÖ´ÓÎÄ±¾ÎÄ¼þµÄ×Ö½ÚÁ÷½âÂë³É×Ö·ûÁ÷£»OutputStreamWriter ÊµÏÖ×Ö·ûÁ÷±àÂë³ÉÎªÎÄ±¾ÎÄ¼þµÄ×Ö½ÚÁ÷¡£ËüÃÇ¶¼¼Ì³Ð×Ô Reader ºÍ Writer¡£
+InputStreamReader å®žçŽ°ä»Žæ–‡æœ¬æ–‡ä»¶çš„å­—èŠ‚æµè§£ç æˆå­—ç¬¦æµï¼›OutputStreamWriter å®žçŽ°å­—ç¬¦æµç¼–ç æˆä¸ºæ–‡æœ¬æ–‡ä»¶çš„å­—èŠ‚æµã€‚å®ƒä»¬ç»§æ‰¿è‡ª Reader å’Œ Writerã€‚
 
-±àÂë¾ÍÊÇ°Ñ×Ö·û×ª»»Îª×Ö½Ú£¬¶ø½âÂëÊÇ°Ñ×Ö½ÚÖØÐÂ×éºÏ³É×Ö·û¡£
+ç¼–ç å°±æ˜¯æŠŠå­—ç¬¦è½¬æ¢ä¸ºå­—èŠ‚ï¼Œè€Œè§£ç æ˜¯æŠŠå­—èŠ‚é‡æ–°ç»„åˆæˆå­—ç¬¦ã€‚
 
 ```java
-byte[] bytes = str.getBytes(encoding);     // ±àÂë
-String str = new String(bytes, encoding)£» // ½âÂë
+byte[] bytes = str.getBytes(encoding);     // ç¼–ç 
+String str = new String(bytes, encoding)ï¼› // è§£ç 
 ```
 
-GBK ±àÂëÖÐ£¬ÖÐÎÄÕ¼ 2 ¸ö×Ö½Ú£¬Ó¢ÎÄÕ¼ 1 ¸ö×Ö½Ú£»UTF-8 ±àÂëÖÐ£¬ÖÐÎÄÕ¼ 3 ¸ö×Ö½Ú£¬Ó¢ÎÄÕ¼ 1 ¸ö×Ö½Ú£»Java Ê¹ÓÃË«×Ö½Ú±àÂë UTF-16be£¬ÖÐÎÄºÍÓ¢ÎÄ¶¼Õ¼ 2 ¸ö×Ö½Ú¡£
+GBK ç¼–ç ä¸­ï¼Œä¸­æ–‡å  2 ä¸ªå­—èŠ‚ï¼Œè‹±æ–‡å  1 ä¸ªå­—èŠ‚ï¼›UTF-8 ç¼–ç ä¸­ï¼Œä¸­æ–‡å  3 ä¸ªå­—èŠ‚ï¼Œè‹±æ–‡å  1 ä¸ªå­—èŠ‚ï¼›Java ä½¿ç”¨åŒå­—èŠ‚ç¼–ç  UTF-16beï¼Œä¸­æ–‡å’Œè‹±æ–‡éƒ½å  2 ä¸ªå­—èŠ‚ã€‚
 
-Èç¹û±àÂëºÍ½âÂë¹ý³ÌÊ¹ÓÃ²»Í¬µÄ±àÂë·½Ê½ÄÇÃ´¾Í³öÏÖÁËÂÒÂë¡£
+å¦‚æžœç¼–ç å’Œè§£ç è¿‡ç¨‹ä½¿ç”¨ä¸åŒçš„ç¼–ç æ–¹å¼é‚£ä¹ˆå°±å‡ºçŽ°äº†ä¹±ç ã€‚
 
-# ¶ÔÏó²Ù×÷
+# äº”ã€å¯¹è±¡æ“ä½œ
 
-ÐòÁÐ»¯¾ÍÊÇ½«Ò»¸ö¶ÔÏó×ª»»³É×Ö½ÚÐòÁÐ£¬·½±ã´æ´¢ºÍ´«Êä¡£
+åºåˆ—åŒ–å°±æ˜¯å°†ä¸€ä¸ªå¯¹è±¡è½¬æ¢æˆå­—èŠ‚åºåˆ—ï¼Œæ–¹ä¾¿å­˜å‚¨å’Œä¼ è¾“ã€‚
 
-ÐòÁÐ»¯£ºObjectOutputStream.writeObject()
+åºåˆ—åŒ–ï¼šObjectOutputStream.writeObject()
 
-·´ÐòÁÐ»¯£ºObjectInputStream.readObject()
+ååºåˆ—åŒ–ï¼šObjectInputStream.readObject()
 
-ÐòÁÐ»¯µÄÀàÐèÒªÊµÏÖ Serializable ½Ó¿Ú£¬ËüÖ»ÊÇÒ»¸ö±ê×¼£¬Ã»ÓÐÈÎºÎ·½·¨ÐèÒªÊµÏÖ¡£
+åºåˆ—åŒ–çš„ç±»éœ€è¦å®žçŽ° Serializable æŽ¥å£ï¼Œå®ƒåªæ˜¯ä¸€ä¸ªæ ‡å‡†ï¼Œæ²¡æœ‰ä»»ä½•æ–¹æ³•éœ€è¦å®žçŽ°ã€‚
 
-transient ¹Ø¼ü×Ö¿ÉÒÔÊ¹Ò»Ð©ÊôÐÔ²»»á±»ÐòÁÐ»¯¡£
+transient å…³é”®å­—å¯ä»¥ä½¿ä¸€äº›å±žæ€§ä¸ä¼šè¢«åºåˆ—åŒ–ã€‚
 
-**ArrayList ÐòÁÐ»¯ºÍ·´ÐòÁÐ»¯µÄÊµÏÖ**£ºArrayList ÖÐ´æ´¢Êý¾ÝµÄÊý×éÊÇÓÃ transient ÐÞÊÎµÄ£¬ÒòÎªÕâ¸öÊý×éÊÇ¶¯Ì¬À©Õ¹µÄ£¬²¢²»ÊÇËùÓÐµÄ¿Õ¼ä¶¼±»Ê¹ÓÃ£¬Òò´Ë¾Í²»ÐèÒªËùÓÐµÄÄÚÈÝ¶¼±»ÐòÁÐ»¯¡£Í¨¹ýÖØÐ´ÐòÁÐ»¯ºÍ·´ÐòÁÐ»¯·½·¨£¬Ê¹µÃ¿ÉÒÔÖ»ÐòÁÐ»¯Êý×éÖÐÓÐÄÚÈÝµÄÄÇ²¿·ÖÊý¾Ý¡£
+**ArrayList åºåˆ—åŒ–å’Œååºåˆ—åŒ–çš„å®žçŽ°** ï¼šArrayList ä¸­å­˜å‚¨æ•°æ®çš„æ•°ç»„æ˜¯ç”¨ transient ä¿®é¥°çš„ï¼Œå› ä¸ºè¿™ä¸ªæ•°ç»„æ˜¯åŠ¨æ€æ‰©å±•çš„ï¼Œå¹¶ä¸æ˜¯æ‰€æœ‰çš„ç©ºé—´éƒ½è¢«ä½¿ç”¨ï¼Œå› æ­¤å°±ä¸éœ€è¦æ‰€æœ‰çš„å†…å®¹éƒ½è¢«åºåˆ—åŒ–ã€‚é€šè¿‡é‡å†™åºåˆ—åŒ–å’Œååºåˆ—åŒ–æ–¹æ³•ï¼Œä½¿å¾—å¯ä»¥åªåºåˆ—åŒ–æ•°ç»„ä¸­æœ‰å†…å®¹çš„é‚£éƒ¨åˆ†æ•°æ®ã€‚
 
-```
+```java
 private transient Object[] elementData;
 ```
 
-# ÍøÂç²Ù×÷
+# å…­ã€ç½‘ç»œæ“ä½œ
 
-Java ÖÐµÄÍøÂçÖ§³Ö£º
+Java ä¸­çš„ç½‘ç»œæ”¯æŒï¼š
 
-1. InetAddress£ºÓÃÓÚ±íÊ¾ÍøÂçÉÏµÄÓ²¼þ×ÊÔ´£¬¼´ IP µØÖ·£»
-2. URL£ºÍ³Ò»×ÊÔ´¶¨Î»·û£¬Í¨¹ý URL ¿ÉÒÔÖ±½Ó¶ÁÈ¡»òÕßÐ´ÈëÍøÂçÉÏµÄÊý¾Ý£»
-3. Sockets£ºÊ¹ÓÃ TCP Ð­ÒéÊµÏÖÍøÂçÍ¨ÐÅ£»
-4. Datagram£ºÊ¹ÓÃ UDP Ð­ÒéÊµÏÖÍøÂçÍ¨ÐÅ¡£
+1. InetAddressï¼šç”¨äºŽè¡¨ç¤ºç½‘ç»œä¸Šçš„ç¡¬ä»¶èµ„æºï¼Œå³ IP åœ°å€ï¼›
+2. URLï¼šç»Ÿä¸€èµ„æºå®šä½ç¬¦ï¼Œé€šè¿‡ URL å¯ä»¥ç›´æŽ¥è¯»å–æˆ–è€…å†™å…¥ç½‘ç»œä¸Šçš„æ•°æ®ï¼›
+3. Socketsï¼šä½¿ç”¨ TCP åè®®å®žçŽ°ç½‘ç»œé€šä¿¡ï¼›
+4. Datagramï¼šä½¿ç”¨ UDP åè®®å®žçŽ°ç½‘ç»œé€šä¿¡ã€‚
 
-## 1. InetAddress
+## InetAddress
 
-Ã»ÓÐ¹«ÓÐ¹¹Ôìº¯Êý£¬Ö»ÄÜÍ¨¹ý¾²Ì¬·½·¨À´´´½¨ÊµÀý£¬±ÈÈç InetAddress.getByName(String host)¡¢InetAddress.getByAddress(byte[] addr)¡£
+æ²¡æœ‰å…¬æœ‰æž„é€ å‡½æ•°ï¼Œåªèƒ½é€šè¿‡é™æ€æ–¹æ³•æ¥åˆ›å»ºå®žä¾‹ã€‚
 
-## 2. URL
+```java
+InetAddress.getByName(String host);
+InetAddress.getByAddress(byte[] addr);
+```
 
-¿ÉÒÔÖ±½Ó´Ó URL ÖÐ¶ÁÈ¡×Ö½ÚÁ÷Êý¾Ý
+## URL
+
+å¯ä»¥ç›´æŽ¥ä»Ž URL ä¸­è¯»å–å­—èŠ‚æµæ•°æ®
 
 ```java
 URL url = new URL("http://www.baidu.com");
-InputStream is = url.openStream(); // ×Ö½ÚÁ÷
-InputStreamReader isr = new InputStreamReader(is, "utf-8");                              // ×Ö·ûÁ÷
+InputStream is = url.openStream();                           // å­—èŠ‚æµ
+InputStreamReader isr = new InputStreamReader(is, "utf-8");  // å­—ç¬¦æµ
 BufferedReader br = new BufferedReader(isr);
 String line = br.readLine();
 while (line != null) {
@@ -135,58 +133,55 @@ isr.close();
 is.close();
 ```
 
-## 3. Sockets
+## Sockets
 
-Socket Í¨ÐÅÄ£ÐÍ
+- ServerSocketï¼šæœåŠ¡å™¨ç«¯ç±»
+- Socketï¼šå®¢æˆ·ç«¯ç±»
+- æœåŠ¡å™¨å’Œå®¢æˆ·ç«¯é€šè¿‡ InputStream å’Œ OutputStream è¿›è¡Œè¾“å…¥è¾“å‡ºã€‚
 
-![](https://github.com/CyC2018/InterviewNotes/blob/master/pics/fa4101d7-19ce-4a69-a84f-20bbe64320e5.jpg)
+<div align="center"> <img src="../pics//ClienteServidorSockets1521731145260.jpg"/> </div><br>
 
-- ServerSocket£º·þÎñÆ÷¶ËÀà
-- Socket£º¿Í»§¶ËÀà
+## Datagram
 
-·þÎñÆ÷ºÍ¿Í»§¶ËÍ¨¹ý InputStream ºÍ OutputStream ½øÐÐÊäÈëÊä³ö¡£
+- DatagramPacketï¼šæ•°æ®åŒ…ç±»
+- DatagramSocketï¼šé€šä¿¡ç±»
 
-## 4. Datagram
+# ä¸ƒã€NIO
 
-- DatagramPacket£ºÊý¾Ý°üÀà
-- DatagramSocket£ºÍ¨ÐÅÀà
+æ–°çš„è¾“å…¥/è¾“å‡º (NIO) åº“æ˜¯åœ¨ JDK 1.4 ä¸­å¼•å…¥çš„ã€‚NIO å¼¥è¡¥äº†åŽŸæ¥çš„ I/O çš„ä¸è¶³ï¼Œå®ƒåœ¨æ ‡å‡† Java ä»£ç ä¸­æä¾›äº†é«˜é€Ÿçš„ã€é¢å‘å—çš„ I/Oã€‚
 
-# NIO
+## æµä¸Žå—
 
-NIO ½«×îºÄÊ±µÄ I/O ²Ù×÷ ( ¼´Ìî³äºÍÌáÈ¡»º³åÇø ) ×ªÒÆ»Ø²Ù×÷ÏµÍ³£¬Òò¶ø ²»ÐèÒª³ÌÐòÔ±È¥¿ØÖÆ¾Í¿ÉÒÔ¼«´óµØÌá¸ßÔËÐÐËÙ¶È¡£
+I/O ä¸Ž NIO æœ€é‡è¦çš„åŒºåˆ«æ˜¯æ•°æ®æ‰“åŒ…å’Œä¼ è¾“çš„æ–¹å¼ï¼ŒI/O ä»¥æµçš„æ–¹å¼å¤„ç†æ•°æ®ï¼Œè€Œ NIO ä»¥å—çš„æ–¹å¼å¤„ç†æ•°æ®ã€‚
 
-## 1. Á÷Óë¿é
+é¢å‘æµçš„ I/O ä¸€æ¬¡å¤„ç†ä¸€ä¸ªå­—èŠ‚æ•°æ®ï¼Œä¸€ä¸ªè¾“å…¥æµäº§ç”Ÿä¸€ä¸ªå­—èŠ‚æ•°æ®ï¼Œä¸€ä¸ªè¾“å‡ºæµæ¶ˆè´¹ä¸€ä¸ªå­—èŠ‚æ•°æ®ã€‚ä¸ºæµå¼æ•°æ®åˆ›å»ºè¿‡æ»¤å™¨éžå¸¸å®¹æ˜“ï¼Œé“¾æŽ¥å‡ ä¸ªè¿‡æ»¤å™¨ï¼Œä»¥ä¾¿æ¯ä¸ªè¿‡æ»¤å™¨åªè´Ÿè´£å•ä¸ªå¤æ‚å¤„ç†æœºåˆ¶çš„ä¸€éƒ¨åˆ†ï¼Œè¿™æ ·ä¹Ÿæ˜¯ç›¸å¯¹ç®€å•çš„ã€‚ä¸åˆ©çš„ä¸€é¢æ˜¯ï¼Œé¢å‘æµçš„ I/O é€šå¸¸ç›¸å½“æ…¢ã€‚
 
-I/O Óë NIO ×îÖØÒªµÄÇø±ðÊÇÊý¾Ý´ò°üºÍ´«ÊäµÄ·½Ê½¡£ÕýÈçÇ°ÃæÌáµ½µÄ£¬I/O ÒÔÁ÷µÄ·½Ê½´¦ÀíÊý¾Ý£¬¶ø NIO ÒÔ¿éµÄ·½Ê½´¦ÀíÊý¾Ý¡£
+ä¸€ä¸ªé¢å‘å—çš„ I/O ç³»ç»Ÿä»¥å—çš„å½¢å¼å¤„ç†æ•°æ®ï¼Œä¸€æ¬¡å¤„ç†ä¸€ä¸ªæ•°æ®å—ã€‚æŒ‰å—å¤„ç†æ•°æ®æ¯”æŒ‰æµå¤„ç†æ•°æ®è¦å¿«å¾—å¤šã€‚ä½†æ˜¯é¢å‘å—çš„ I/O ç¼ºå°‘ä¸€äº›é¢å‘æµçš„ I/O æ‰€å…·æœ‰çš„ä¼˜é›…æ€§å’Œç®€å•æ€§ã€‚
 
-ÃæÏòÁ÷µÄ I/O Ò»´ÎÒ»¸ö×Ö½Ú½øÐÐ´¦ÀíÊý¾Ý£¬Ò»¸öÊäÈëÁ÷²úÉúÒ»¸ö×Ö½ÚµÄÊý¾Ý£¬Ò»¸öÊä³öÁ÷Ïû·ÑÒ»¸ö×Ö½ÚµÄÊý¾Ý¡£ÎªÁ÷Ê½Êý¾Ý´´½¨¹ýÂËÆ÷·Ç³£ÈÝÒ×£¬Á´½Ó¼¸¸ö¹ýÂËÆ÷£¬ÒÔ±ãÃ¿¸ö¹ýÂËÆ÷Ö»¸ºÔðµ¥¸ö¸´ÔÓ´¦Àí»úÖÆµÄÒ»²¿·Ö£¬ÕâÑùÒ²ÊÇÏà¶Ô¼òµ¥µÄ¡£²»ÀûµÄÒ»ÃæÊÇ£¬ÃæÏòÁ÷µÄ I/O Í¨³£Ïàµ±Âý¡£
+I/O åŒ…å’Œ NIO å·²ç»å¾ˆå¥½åœ°é›†æˆäº†ï¼Œjava.io.\* å·²ç»ä»¥ NIO ä¸ºåŸºç¡€é‡æ–°å®žçŽ°äº†ï¼Œæ‰€ä»¥çŽ°åœ¨å®ƒå¯ä»¥åˆ©ç”¨ NIO çš„ä¸€äº›ç‰¹æ€§ã€‚ä¾‹å¦‚ï¼Œjava.io.\* åŒ…ä¸­çš„ä¸€äº›ç±»åŒ…å«ä»¥å—çš„å½¢å¼è¯»å†™æ•°æ®çš„æ–¹æ³•ï¼Œè¿™ä½¿å¾—å³ä½¿åœ¨é¢å‘æµçš„ç³»ç»Ÿä¸­ï¼Œå¤„ç†é€Ÿåº¦ä¹Ÿä¼šæ›´å¿«ã€‚
 
-Ò»¸öÃæÏò¿éµÄ I/O ÏµÍ³ÒÔ¿éµÄÐÎÊ½´¦ÀíÊý¾Ý£¬Ã¿Ò»¸ö²Ù×÷¶¼ÔÚÒ»²½ÖÐ²úÉú»òÕßÏû·ÑÒ»¸öÊý¾Ý¿é¡£°´¿é´¦ÀíÊý¾Ý±È°´Á÷´¦ÀíÊý¾ÝÒª¿ìµÃ¶à¡£µ«ÊÇÃæÏò¿éµÄ I/O È±ÉÙÒ»Ð©ÃæÏòÁ÷µÄ I/O Ëù¾ßÓÐµÄÓÅÑÅÐÔºÍ¼òµ¥ÐÔ¡£
+## é€šé“ä¸Žç¼“å†²åŒº
 
-I/O °üºÍ NIO ÒÑ¾­ºÜºÃµØ¼¯³ÉÁË£¬java.io.\* ÒÑ¾­ÒÔ NIO Îª»ù´¡ÖØÐÂÊµÏÖÁË£¬ËùÒÔÏÖÔÚËü¿ÉÒÔÀûÓÃ NIO µÄÒ»Ð©ÌØÐÔ¡£ÀýÈç£¬ java.io.\* °üÖÐµÄÒ»Ð©Àà°üº¬ÒÔ¿éµÄÐÎÊ½¶ÁÐ´Êý¾ÝµÄ·½·¨£¬ÕâÊ¹µÃ¼´Ê¹ÔÚ¸üÃæÏòÁ÷µÄÏµÍ³ÖÐ£¬´¦ÀíËÙ¶ÈÒ²»á¸ü¿ì¡£
+### 1. é€šé“
 
-## 2. Í¨µÀÓë»º³åÇø
+é€šé“ Channel æ˜¯å¯¹åŽŸ I/O åŒ…ä¸­çš„æµçš„æ¨¡æ‹Ÿï¼Œå¯ä»¥é€šè¿‡å®ƒè¯»å–å’Œå†™å…¥æ•°æ®ã€‚
 
-### 2.1 Í¨µÀ
+é€šé“ä¸Žæµçš„ä¸åŒä¹‹å¤„åœ¨äºŽï¼Œæµåªèƒ½åœ¨ä¸€ä¸ªæ–¹å‘ä¸Šç§»åŠ¨ï¼Œ(ä¸€ä¸ªæµå¿…é¡»æ˜¯ InputStream æˆ–è€… OutputStream çš„å­ç±»)ï¼Œè€Œé€šé“æ˜¯åŒå‘çš„ï¼Œå¯ä»¥ç”¨äºŽè¯»ã€å†™æˆ–è€…åŒæ—¶ç”¨äºŽè¯»å†™ã€‚
 
-Í¨µÀ Channel ÊÇ¶ÔÔ­ I/O °üÖÐµÄÁ÷µÄÄ£Äâ£¬¿ÉÒÔÍ¨¹ýËü¶ÁÈ¡ºÍÐ´ÈëÊý¾Ý¡£
+é€šé“åŒ…æ‹¬ä»¥ä¸‹ç±»åž‹ï¼š
 
-Í¨µÀÓëÁ÷µÄ²»Í¬Ö®´¦ÔÚÓÚ£¬Á÷Ö»ÄÜÔÚÒ»¸ö·½ÏòÉÏÒÆ¶¯£¬(Ò»¸öÁ÷±ØÐëÊÇ InputStream »òÕß OutputStream µÄ×ÓÀà)£¬ ¶øÍ¨µÀÊÇË«ÏòµÄ£¬¿ÉÒÔÓÃÓÚ¶Á¡¢Ð´»òÕßÍ¬Ê±ÓÃÓÚ¶ÁÐ´¡£
+- FileChannelï¼šä»Žæ–‡ä»¶ä¸­è¯»å†™æ•°æ®ï¼›
+- DatagramChannelï¼šé€šè¿‡ UDP è¯»å†™ç½‘ç»œä¸­æ•°æ®ï¼›
+- SocketChannelï¼šé€šè¿‡ TCP è¯»å†™ç½‘ç»œä¸­æ•°æ®ï¼›
+- ServerSocketChannelï¼šå¯ä»¥ç›‘å¬æ–°è¿›æ¥çš„ TCP è¿žæŽ¥ï¼Œå¯¹æ¯ä¸€ä¸ªæ–°è¿›æ¥çš„è¿žæŽ¥éƒ½ä¼šåˆ›å»ºä¸€ä¸ª SocketChannelã€‚
 
-Í¨µÀ°üÀ¨ÒÔÏÂÀàÐÍ£º
+### 2. ç¼“å†²åŒº
 
-- FileChannel£º´ÓÎÄ¼þÖÐ¶ÁÐ´Êý¾Ý£»
-- DatagramChannel£ºÍ¨¹ý UDP ¶ÁÐ´ÍøÂçÖÐÊý¾Ý£»
-- SocketChannel£ºÍ¨¹ý TCP ¶ÁÐ´ÍøÂçÖÐÊý¾Ý£»
-- ServerSocketChannel£º¿ÉÒÔ¼àÌýÐÂ½øÀ´µÄ TCP Á¬½Ó£¬¶ÔÃ¿Ò»¸öÐÂ½øÀ´µÄÁ¬½Ó¶¼»á´´½¨Ò»¸ö SocketChannel¡£
+å‘é€ç»™ä¸€ä¸ªé€šé“çš„æ‰€æœ‰æ•°æ®éƒ½å¿…é¡»é¦–å…ˆæ”¾åˆ°ç¼“å†²åŒºä¸­ï¼ŒåŒæ ·åœ°ï¼Œä»Žé€šé“ä¸­è¯»å–çš„ä»»ä½•æ•°æ®éƒ½è¦è¯»åˆ°ç¼“å†²åŒºä¸­ã€‚ä¹Ÿå°±æ˜¯è¯´ï¼Œä¸ä¼šç›´æŽ¥å¯¹é€šé“è¿›è¡Œè¯»å†™æ•°æ®ï¼Œè€Œæ˜¯è¦å…ˆç»è¿‡ç¼“å†²åŒºã€‚
 
-### 2.2 »º³åÇø
+ç¼“å†²åŒºå®žè´¨ä¸Šæ˜¯ä¸€ä¸ªæ•°ç»„ï¼Œä½†å®ƒä¸ä»…ä»…æ˜¯ä¸€ä¸ªæ•°ç»„ã€‚ç¼“å†²åŒºæä¾›äº†å¯¹æ•°æ®çš„ç»“æž„åŒ–è®¿é—®ï¼Œè€Œä¸”è¿˜å¯ä»¥è·Ÿè¸ªç³»ç»Ÿçš„è¯»/å†™è¿›ç¨‹ã€‚
 
-·¢ËÍ¸øÒ»¸öÍ¨µÀµÄËùÓÐ¶ÔÏó¶¼±ØÐëÊ×ÏÈ·Åµ½»º³åÇøÖÐ£»Í¬ÑùµØ£¬´ÓÍ¨µÀÖÐ¶ÁÈ¡µÄÈÎºÎÊý¾Ý¶¼Òª¶Áµ½»º³åÇøÖÐ¡£Ò²¾ÍÊÇËµ£¬²»»áÖ±½Ó¶ÔÍ¨µÀ½øÐÐ¶ÁÐ´Êý¾Ý£¬¶øÊÇÏÈ¾­¹ý»º³åÇø¡£
-
-»º³åÇøÊµÖÊÉÏÊÇÒ»¸öÊý×é£¬µ«Ëü²»½ö½öÊÇÒ»¸öÊý×é¡£»º³åÇøÌá¹©ÁË¶ÔÊý¾ÝµÄ½á¹¹»¯·ÃÎÊ£¬¶øÇÒ»¹¿ÉÒÔ¸ú×ÙÏµÍ³µÄ¶Á/Ð´½ø³Ì¡£
-
-»º³åÇø°üÀ¨ÒÔÏÂÀàÐÍ£º
+ç¼“å†²åŒºåŒ…æ‹¬ä»¥ä¸‹ç±»åž‹ï¼š
 
 - ByteBuffer
 - CharBuffer
@@ -196,51 +191,50 @@ I/O °üºÍ NIO ÒÑ¾­ºÜºÃµØ¼¯³ÉÁË£¬java.io.\* ÒÑ¾­ÒÔ NIO Îª»ù´¡ÖØÐÂÊµÏÖÁË£¬ËùÒÔÏÖÔÚË
 - FloatBuffer
 - DoubleBuffer
 
+## ç¼“å†²åŒºçŠ¶æ€å˜é‡
 
-## 3. »º³åÇø×´Ì¬±äÁ¿
+- capacityï¼šæœ€å¤§å®¹é‡ï¼›
+- positionï¼šå½“å‰å·²ç»è¯»å†™çš„å­—èŠ‚æ•°ï¼›
+- limitï¼šè¿˜å¯ä»¥è¯»å†™çš„å­—èŠ‚æ•°ã€‚
 
-- capacity£º×î´óÈÝÁ¿£»
-- position£ºµ±Ç°ÒÑ¾­¶ÁÐ´µÄ×Ö½ÚÊý£»
-- limit£º»¹¿ÉÒÔ¶ÁÐ´µÄ×Ö½ÚÊý¡£
+çŠ¶æ€å˜é‡çš„æ”¹å˜è¿‡ç¨‹ä¸¾ä¾‹ï¼š
 
-×´Ì¬±äÁ¿µÄ¸Ä±ä¹ý³Ì£º
+â‘  æ–°å»ºä¸€ä¸ªå¤§å°ä¸º 8 ä¸ªå­—èŠ‚çš„ç¼“å†²åŒºï¼Œæ­¤æ—¶ position ä¸º 0ï¼Œè€Œ limit = capacity = 8ã€‚capacity å˜é‡ä¸ä¼šæ”¹å˜ï¼Œä¸‹é¢çš„è®¨è®ºä¼šå¿½ç•¥å®ƒã€‚
 
-1\. ÐÂ½¨Ò»¸ö´óÐ¡Îª 8 ¸ö×Ö½ÚµÄ»º³åÇø£¬´ËÊ± position Îª 0£¬¶ø limit == capacity == 9¡£capacity ±äÁ¿²»»á¸Ä±ä£¬ÏÂÃæµÄÌÖÂÛ»áºöÂÔËü¡£
+<div align="center"> <img src="../pics//1bea398f-17a7-4f67-a90b-9e2d243eaa9a.png"/> </div><br>
 
-![](https://github.com/CyC2018/InterviewNotes/blob/master/pics/1bea398f-17a7-4f67-a90b-9e2d243eaa9a.png)
+â‘¡ ä»Žè¾“å…¥é€šé“ä¸­è¯»å– 3 ä¸ªå­—èŠ‚æ•°æ®å†™å…¥ç¼“å†²åŒºä¸­ï¼Œæ­¤æ—¶ position ç§»åŠ¨è®¾ä¸º 3ï¼Œlimit ä¿æŒä¸å˜ã€‚
 
-2\. ´ÓÊäÈëÍ¨µÀÖÐ¶ÁÈ¡ 3 ¸ö×Ö½ÚÊý¾ÝÐ´Èë»º³åÇøÖÐ£¬´ËÊ± position ÒÆ¶¯ÉèÎª 3£¬limit ±£³Ö²»±ä¡£
+<div align="center"> <img src="../pics//4628274c-25b6-4053-97cf-d1239b44c43d.png"/> </div><br>
 
-![](https://github.com/CyC2018/InterviewNotes/blob/master/pics/4628274c-25b6-4053-97cf-d1239b44c43d.png)
+â‘¢ ä»¥ä¸‹å›¾ä¾‹ä¸ºå·²ç»ä»Žè¾“å…¥é€šé“è¯»å–äº† 5 ä¸ªå­—èŠ‚æ•°æ®å†™å…¥ç¼“å†²åŒºä¸­ã€‚åœ¨å°†ç¼“å†²åŒºçš„æ•°æ®å†™åˆ°è¾“å‡ºé€šé“ä¹‹å‰ï¼Œéœ€è¦å…ˆè°ƒç”¨ flip() æ–¹æ³•ï¼Œè¿™ä¸ªæ–¹æ³•å°† limit è®¾ç½®ä¸ºå½“å‰ positionï¼Œå¹¶å°† position è®¾ç½®ä¸º 0ã€‚
 
-3\. ÔÚ½«»º³åÇøµÄÊý¾ÝÐ´µ½Êä³öÍ¨µÀÖ®Ç°£¬ÐèÒªÏÈµ÷ÓÃ flip() ·½·¨£¬Õâ¸ö·½·¨½« limit ÉèÖÃÎªµ±Ç° position£¬²¢½« position ÉèÖÃÎª 0¡£
+<div align="center"> <img src="../pics//952e06bd-5a65-4cab-82e4-dd1536462f38.png"/> </div><br>
 
-![](https://github.com/CyC2018/InterviewNotes/blob/master/pics/952e06bd-5a65-4cab-82e4-dd1536462f38.png)
+â‘£ ä»Žç¼“å†²åŒºä¸­å– 4 ä¸ªå­—èŠ‚åˆ°è¾“å‡ºç¼“å†²ä¸­ï¼Œæ­¤æ—¶ position è®¾ä¸º 4ã€‚
 
-4\. ´Ó»º³åÇøÖÐÈ¡ 4 ¸ö×Ö½Úµ½Êä³ö»º³åÖÐ£¬´ËÊ± position ÉèÎª 4¡£
+<div align="center"> <img src="../pics//b5bdcbe2-b958-4aef-9151-6ad963cb28b4.png"/> </div><br>
 
-![](https://github.com/CyC2018/InterviewNotes/blob/master/pics/b5bdcbe2-b958-4aef-9151-6ad963cb28b4.png)
+â‘¤ æœ€åŽéœ€è¦è°ƒç”¨ clear() æ–¹æ³•æ¥æ¸…ç©ºç¼“å†²åŒºï¼Œæ­¤æ—¶ position å’Œ limit éƒ½è¢«è®¾ç½®ä¸ºæœ€åˆä½ç½®ã€‚
 
-5\. ×îºóÐèÒªµ÷ÓÃ clear() ·½·¨À´Çå¿Õ»º³åÇø£¬´ËÊ± position ºÍ limit ¶¼±»ÉèÖÃÎª×î³õÎ»ÖÃ¡£
+<div align="center"> <img src="../pics//67bf5487-c45d-49b6-b9c0-a058d8c68902.png"/> </div><br>
 
-![](https://github.com/CyC2018/InterviewNotes/blob/master/pics/67bf5487-c45d-49b6-b9c0-a058d8c68902.png)
+## æ–‡ä»¶ NIO å®žä¾‹
 
-## 4. ¶ÁÐ´ÎÄ¼þÊµÀý
-
-1\. ÎªÒª¶ÁÈ¡µÄÎÄ¼þ´´½¨ FileInputStream£¬Ö®ºóÍ¨¹ý FileInputStream »ñÈ¡ÊäÈë FileChannel£»
+â‘  ä¸ºè¦è¯»å–çš„æ–‡ä»¶åˆ›å»º FileInputStreamï¼Œä¹‹åŽé€šè¿‡ FileInputStream èŽ·å–è¾“å…¥ FileChannelï¼›
 
 ```java
 FileInputStream fin = new FileInputStream("readandshow.txt");
 FileChannel fic = fin.getChannel();
 ```
 
-2\. ´´½¨Ò»¸öÈÝÁ¿Îª 1024 µÄ Buffer
+â‘¡ åˆ›å»ºä¸€ä¸ªå®¹é‡ä¸º 1024 çš„ Bufferï¼›
 
 ```java
 ByteBuffer buffer = ByteBuffer.allocate(1024);
 ```
 
-3\. ½«Êý¾Ý´ÓÊäÈë FileChannel Ð´Èëµ½ Buffer ÖÐ£¬Èç¹ûÃ»ÓÐÊý¾ÝµÄ»°£¬ read() ·½·¨»á·µ»Ø -1
+â‘¢ å°†æ•°æ®ä»Žè¾“å…¥ FileChannel å†™å…¥åˆ° Buffer ä¸­ï¼Œå¦‚æžœæ²¡æœ‰æ•°æ®çš„è¯ï¼Œread() æ–¹æ³•ä¼šè¿”å›ž -1ï¼›
 
 ```java
 int r = fcin.read(buffer);
@@ -249,102 +243,82 @@ if (r == -1) {
 }
 ```
 
-4\. ÎªÒªÐ´ÈëµÄÎÄ¼þ´´½¨ FileOutputStream£¬Ö®ºóÍ¨¹ý FileOutputStream »ñÈ¡Êä³ö FileChannel
+â‘£ ä¸ºè¦å†™å…¥çš„æ–‡ä»¶åˆ›å»º FileOutputStreamï¼Œä¹‹åŽé€šè¿‡ FileOutputStream èŽ·å–è¾“å‡º FileChannel
 
 ```java
 FileOutputStream fout = new FileOutputStream("writesomebytes.txt");
 FileChannel foc = fout.getChannel();
 ```
 
-5\. µ÷ÓÃ flip() ÇÐ»»¶ÁÐ´
+â‘¤ è°ƒç”¨ flip() åˆ‡æ¢è¯»å†™
 
 ```java
 buffer.flip();
 ```
 
-6\. °Ñ Buffer ÖÐµÄÊý¾Ý¶ÁÈ¡µ½Êä³ö FileChannel ÖÐ
+â‘¥ æŠŠ Buffer ä¸­çš„æ•°æ®è¯»å–åˆ°è¾“å‡º FileChannel ä¸­
 
 ```java
 foc.write(buffer);
 ```
 
-7\. ×îºóµ÷ÓÃ clear() ÖØÖÃ»º³åÇø
+â‘¦ æœ€åŽè°ƒç”¨ clear() é‡ç½®ç¼“å†²åŒº
 
 ```java
 buffer.clear();
 ```
 
-## 5. ×èÈûÓë·Ç×èÈû
+## å¥—æŽ¥å­— NIO å®žä¾‹
 
-Ó¦µ±×¢Òâ£¬FileChannel ²»ÄÜÇÐ»»µ½·Ç×èÈûÄ£Ê½£¬Ì×½Ó×Ö Channel ¿ÉÒÔ¡£
+### 1. ServerSocketChannel
 
-### 5.1 ×èÈûÊ½ I/O
-
-×èÈûÊ½ I/O ÔÚµ÷ÓÃ InputStream.read() ·½·¨Ê±»áÒ»Ö±µÈµ½Êý¾Ýµ½À´Ê±£¨»ò³¬Ê±£©²Å»á·µ»Ø£¬ÔÚµ÷ÓÃ ServerSocket.accept() ·½·¨Ê±£¬Ò²»áÒ»Ö±×èÈûµ½ÓÐ¿Í»§¶ËÁ¬½Ó²Å»á·µ»Ø£¬Ã¿¸ö¿Í»§¶ËÁ¬½Ó¹ýÀ´ºó£¬·þÎñ¶Ë¶¼»áÆô¶¯Ò»¸öÏß³ÌÈ¥´¦Àí¸Ã¿Í»§¶ËµÄÇëÇó¡£
-
-![](https://github.com/CyC2018/InterviewNotes/blob/master/pics/edc23f99-c46c-4200-b64e-07516828720d.jpg)
-
-### 5.2 ·Ç×èÈûÊ½ I/O
-
-ÓÉÒ»¸ö×¨ÃÅµÄÏß³ÌÀ´´¦ÀíËùÓÐµÄ I/O ÊÂ¼þ£¬²¢¸ºÔð·Ö·¢¡£
-
-ÊÂ¼þÇý¶¯»úÖÆ£ºÊÂ¼þµ½µÄÊ±ºò´¥·¢£¬¶ø²»ÊÇÍ¬²½µÄÈ¥¼àÊÓÊÂ¼þ¡£
-
-Ïß³ÌÍ¨ÐÅ£ºÏß³ÌÖ®¼äÍ¨¹ý wait()¡¢notify() µÈ·½Ê½Í¨ÐÅ£¬±£Ö¤Ã¿´ÎÉÏÏÂÎÄÇÐ»»¶¼ÊÇÓÐÒâÒåµÄ£¬¼õÉÙÎÞÎ½µÄÏß³ÌÇÐ»»¡£
-
-![](https://github.com/CyC2018/InterviewNotes/blob/master/pics/7fcb2fb0-2cd9-4396-bc2d-282becf963c3.jpg)
-
-## 6. Ì×½Ó×ÖÊµÀý
-
-### 6.1 ServerSocketChannel
-
-Ã¿Ò»¸ö¶Ë¿Ú¶¼ÐèÒªÓÐÒ»¸ö ServerSocketChannel ÓÃÀ´¼àÌýÁ¬½Ó¡£
+æ¯ä¸€ä¸ªç›‘å¬ç«¯å£éƒ½éœ€è¦æœ‰ä¸€ä¸ª ServerSocketChannel ç”¨æ¥ç›‘å¬è¿žæŽ¥ã€‚
 
 ```java
 ServerSocketChannel ssc = ServerSocketChannel.open();
-ssc.configureBlocking(false); // ÉèÖÃÎª·Ç×èÈû
+ssc.configureBlocking(false); // è®¾ç½®ä¸ºéžé˜»å¡ž
 
 ServerSocket ss = ssc.socket();
 InetSocketAddress address = new InetSocketAddress(ports[i]);
-ss.bind(address); // °ó¶¨¶Ë¿ÚºÅ
+ss.bind(address); // ç»‘å®šç«¯å£å·
 ```
 
-### 6.2 Selectors
+### 2. Selectors
 
-Òì²½ I/O Í¨¹ý Selector ×¢²á¶ÔÌØ¶¨ I/O ÊÂ¼þµÄÐËÈ¤ ¨D ¿É¶ÁµÄÊý¾ÝµÄµ½´ï¡¢ÐÂµÄÌ×½Ó×ÖÁ¬½ÓµÈµÈ£¬ÔÚ·¢ÉúÕâÑùµÄÊÂ¼þÊ±£¬ÏµÍ³½«»á·¢ËÍÍ¨Öª¡£
+å¼‚æ­¥ I/O é€šè¿‡ Selector æ³¨å†Œå¯¹ç‰¹å®š I/O äº‹ä»¶çš„å…´è¶£ â€• å¯è¯»çš„æ•°æ®çš„åˆ°è¾¾ã€æ–°çš„å¥—æŽ¥å­—è¿žæŽ¥ç­‰ç­‰ï¼Œåœ¨å‘ç”Ÿè¿™æ ·çš„äº‹ä»¶æ—¶ï¼Œç³»ç»Ÿå°†ä¼šå‘é€é€šçŸ¥ã€‚
 
-´´½¨ Selectors Ö®ºó£¬¾Í¿ÉÒÔ¶Ô²»Í¬µÄÍ¨µÀ¶ÔÏóµ÷ÓÃ register() ·½·¨¡£register() µÄµÚÒ»¸ö²ÎÊý×ÜÊÇÕâ¸ö Selector¡£µÚ¶þ¸ö²ÎÊýÊÇ OP_ACCEPT£¬ÕâÀïËüÖ¸¶¨ÎÒÃÇÏëÒª¼àÌý accept ÊÂ¼þ£¬Ò²¾ÍÊÇÔÚÐÂµÄÁ¬½Ó½¨Á¢Ê±Ëù·¢ÉúµÄÊÂ¼þ¡£
+åˆ›å»º Selectors ä¹‹åŽï¼Œå°±å¯ä»¥å¯¹ä¸åŒçš„é€šé“å¯¹è±¡è°ƒç”¨ register() æ–¹æ³•ã€‚register() çš„ç¬¬ä¸€ä¸ªå‚æ•°æ€»æ˜¯è¿™ä¸ª Selectorã€‚ç¬¬äºŒä¸ªå‚æ•°æ˜¯ OP_ACCEPTï¼Œè¿™é‡Œå®ƒæŒ‡å®šæˆ‘ä»¬æƒ³è¦ç›‘å¬ ACCEPT äº‹ä»¶ï¼Œä¹Ÿå°±æ˜¯åœ¨æ–°çš„è¿žæŽ¥å»ºç«‹æ—¶æ‰€å‘ç”Ÿçš„äº‹ä»¶ã€‚
 
-SelectionKey ´ú±íÕâ¸öÍ¨µÀÔÚ´Ë Selector ÉÏµÄÕâ¸ö×¢²á¡£µ±Ä³¸ö Selector Í¨ÖªÄúÄ³¸ö´«ÈëÊÂ¼þÊ±£¬ËüÊÇÍ¨¹ýÌá¹©¶ÔÓ¦ÓÚ¸ÃÊÂ¼þµÄ SelectionKey À´½øÐÐµÄ¡£SelectionKey »¹¿ÉÒÔÓÃÓÚÈ¡ÏûÍ¨µÀµÄ×¢²á¡£
+SelectionKey ä»£è¡¨è¿™ä¸ªé€šé“åœ¨æ­¤ Selector ä¸Šçš„è¿™ä¸ªæ³¨å†Œã€‚å½“æŸä¸ª Selector é€šçŸ¥æ‚¨æŸä¸ªä¼ å…¥äº‹ä»¶æ—¶ï¼Œå®ƒæ˜¯é€šè¿‡æä¾›å¯¹åº”äºŽè¯¥äº‹ä»¶çš„ SelectionKey æ¥è¿›è¡Œçš„ã€‚SelectionKey è¿˜å¯ä»¥ç”¨äºŽå–æ¶ˆé€šé“çš„æ³¨å†Œã€‚
 
 ```java
 Selector selector = Selector.open();
 SelectionKey key = ssc.register(selector, SelectionKey.OP_ACCEPT);
 ```
 
-### 6.3 Ö÷Ñ­»·
+### 3. ä¸»å¾ªçŽ¯
 
-Ê×ÏÈ£¬ÎÒÃÇµ÷ÓÃ Selector µÄ select() ·½·¨¡£Õâ¸ö·½·¨»á×èÈû£¬Ö±µ½ÖÁÉÙÓÐÒ»¸öÒÑ×¢²áµÄÊÂ¼þ·¢Éú¡£µ±Ò»¸ö»òÕß¸ü¶àµÄÊÂ¼þ·¢ÉúÊ±£¬ select() ·½·¨½«·µ»ØËù·¢ÉúµÄÊÂ¼þµÄÊýÁ¿¡£
+é¦–å…ˆï¼Œæˆ‘ä»¬è°ƒç”¨ Selector çš„ select() æ–¹æ³•ã€‚è¿™ä¸ªæ–¹æ³•ä¼šé˜»å¡žï¼Œç›´åˆ°è‡³å°‘æœ‰ä¸€ä¸ªå·²æ³¨å†Œçš„äº‹ä»¶å‘ç”Ÿã€‚å½“ä¸€ä¸ªæˆ–è€…æ›´å¤šçš„äº‹ä»¶å‘ç”Ÿæ—¶ï¼Œselect() æ–¹æ³•å°†è¿”å›žæ‰€å‘ç”Ÿçš„äº‹ä»¶çš„æ•°é‡ã€‚
 
-½ÓÏÂÀ´£¬ÎÒÃÇµ÷ÓÃ Selector µÄ selectedKeys() ·½·¨£¬Ëü·µ»Ø·¢ÉúÁËÊÂ¼þµÄ SelectionKey ¶ÔÏóµÄÒ»¸ö ¼¯ºÏ ¡£
+æŽ¥ä¸‹æ¥ï¼Œæˆ‘ä»¬è°ƒç”¨ Selector çš„ selectedKeys() æ–¹æ³•ï¼Œå®ƒè¿”å›žå‘ç”Ÿäº†äº‹ä»¶çš„ SelectionKey å¯¹è±¡çš„ä¸€ä¸ªé›†åˆã€‚
 
-ÎÒÃÇÍ¨¹ýµü´ú SelectionKeys ²¢ÒÀ´Î´¦ÀíÃ¿¸ö SelectionKey À´´¦ÀíÊÂ¼þ¡£¶ÔÓÚÃ¿Ò»¸ö SelectionKey£¬Äú±ØÐëÈ·¶¨·¢ÉúµÄÊÇÊ²Ã´ I/O ÊÂ¼þ£¬ÒÔ¼°Õâ¸öÊÂ¼þÓ°ÏìÄÄÐ© I/O ¶ÔÏó¡£
+æˆ‘ä»¬é€šè¿‡è¿­ä»£ SelectionKeys å¹¶ä¾æ¬¡å¤„ç†æ¯ä¸ª SelectionKey æ¥å¤„ç†äº‹ä»¶ã€‚å¯¹äºŽæ¯ä¸€ä¸ª SelectionKeyï¼Œæ‚¨å¿…é¡»ç¡®å®šå‘ç”Ÿçš„æ˜¯ä»€ä¹ˆ I/O äº‹ä»¶ï¼Œä»¥åŠè¿™ä¸ªäº‹ä»¶å½±å“å“ªäº› I/O å¯¹è±¡ã€‚
 
 ```java
 int num = selector.select();
- 
+
 Set selectedKeys = selector.selectedKeys();
 Iterator it = selectedKeys.iterator();
- 
+
 while (it.hasNext()) {
      SelectionKey key = (SelectionKey)it.next();
      // ... deal with I/O event ...
 }
 ```
 
-### 6.4 ¼àÌýÐÂÁ¬½Ó
+### 4. ç›‘å¬æ–°è¿žæŽ¥
 
-³ÌÐòÖ´ÐÐµ½ÕâÀï£¬ÎÒÃÇ½ö×¢²áÁË ServerSocketChannel£¬²¢ÇÒ½ö×¢²áËüÃÇ¡°½ÓÊÕ¡±ÊÂ¼þ¡£ÎªÈ·ÈÏÕâÒ»µã£¬ÎÒÃÇ¶Ô SelectionKey µ÷ÓÃ readyOps() ·½·¨£¬²¢¼ì²é·¢ÉúÁËÊ²Ã´ÀàÐÍµÄÊÂ¼þ£º
+ç¨‹åºæ‰§è¡Œåˆ°è¿™é‡Œï¼Œæˆ‘ä»¬ä»…æ³¨å†Œäº† ServerSocketChannelï¼Œå¹¶ä¸”ä»…æ³¨å†Œå®ƒä»¬â€œæŽ¥æ”¶â€äº‹ä»¶ã€‚ä¸ºç¡®è®¤è¿™ä¸€ç‚¹ï¼Œæˆ‘ä»¬å¯¹ SelectionKey è°ƒç”¨ readyOps() æ–¹æ³•ï¼Œå¹¶æ£€æŸ¥å‘ç”Ÿäº†ä»€ä¹ˆç±»åž‹çš„äº‹ä»¶ï¼š
 
 ```java
 if ((key.readyOps() & SelectionKey.OP_ACCEPT)
@@ -354,39 +328,39 @@ if ((key.readyOps() & SelectionKey.OP_ACCEPT)
 }
 ```
 
-¿ÉÒÔ¿Ï¶¨µØËµ£¬ readOps() ·½·¨¸æËßÎÒÃÇ¸ÃÊÂ¼þÊÇÐÂµÄÁ¬½Ó¡£
+å¯ä»¥è‚¯å®šåœ°è¯´ï¼ŒreadOps() æ–¹æ³•å‘Šè¯‰æˆ‘ä»¬è¯¥äº‹ä»¶æ˜¯æ–°çš„è¿žæŽ¥ã€‚
 
-### 6.5 ½ÓÊÜÐÂµÄÁ¬½Ó
+### 5. æŽ¥å—æ–°çš„è¿žæŽ¥
 
-ÒòÎªÎÒÃÇÖªµÀÕâ¸ö·þÎñÆ÷Ì×½Ó×ÖÉÏÓÐÒ»¸ö´«ÈëÁ¬½ÓÔÚµÈ´ý£¬ËùÒÔ¿ÉÒÔ°²È«µØ½ÓÊÜËü£»Ò²¾ÍÊÇËµ£¬²»ÓÃµ£ÐÄ accept() ²Ù×÷»á×èÈû£º
+å› ä¸ºæˆ‘ä»¬çŸ¥é“è¿™ä¸ªæœåŠ¡å™¨å¥—æŽ¥å­—ä¸Šæœ‰ä¸€ä¸ªä¼ å…¥è¿žæŽ¥åœ¨ç­‰å¾…ï¼Œæ‰€ä»¥å¯ä»¥å®‰å…¨åœ°æŽ¥å—å®ƒï¼›ä¹Ÿå°±æ˜¯è¯´ï¼Œä¸ç”¨æ‹…å¿ƒ accept() æ“ä½œä¼šé˜»å¡žï¼š
 
 ```java
 ServerSocketChannel ssc = (ServerSocketChannel)key.channel();
 SocketChannel sc = ssc.accept();
 ```
 
-ÏÂÒ»²½ÊÇ½«ÐÂÁ¬½ÓµÄ SocketChannel ÅäÖÃÎª·Ç×èÈûµÄ¡£¶øÇÒÓÉÓÚ½ÓÊÜÕâ¸öÁ¬½ÓµÄÄ¿µÄÊÇÎªÁË¶ÁÈ¡À´×ÔÌ×½Ó×ÖµÄÊý¾Ý£¬ËùÒÔÎÒÃÇ»¹±ØÐë½« SocketChannel ×¢²áµ½ SelectorÉÏ£¬ÈçÏÂËùÊ¾£º
+ä¸‹ä¸€æ­¥æ˜¯å°†æ–°è¿žæŽ¥çš„ SocketChannel é…ç½®ä¸ºéžé˜»å¡žçš„ã€‚è€Œä¸”ç”±äºŽæŽ¥å—è¿™ä¸ªè¿žæŽ¥çš„ç›®çš„æ˜¯ä¸ºäº†è¯»å–æ¥è‡ªå¥—æŽ¥å­—çš„æ•°æ®ï¼Œæ‰€ä»¥æˆ‘ä»¬è¿˜å¿…é¡»å°† SocketChannel æ³¨å†Œåˆ° Selector ä¸Šï¼Œå¦‚ä¸‹æ‰€ç¤ºï¼š
 
 ```java
-sc.configureBlocking( false );
-SelectionKey newKey = sc.register( selector, SelectionKey.OP_READ );
+sc.configureBlocking(false);
+SelectionKey newKey = sc.register(selector, SelectionKey.OP_READ);
 ```
 
-×¢ÒâÎÒÃÇÊ¹ÓÃ register() µÄ OP_READ ²ÎÊý£¬½« SocketChannel ×¢²áÓÃÓÚ ¶ÁÈ¡ ¶ø²»ÊÇ ½ÓÊÜ ÐÂÁ¬½Ó¡£
+æ³¨æ„æˆ‘ä»¬ä½¿ç”¨ register() çš„ OP_READ å‚æ•°ï¼Œå°† SocketChannel æ³¨å†Œç”¨äºŽè¯»å–è€Œä¸æ˜¯æŽ¥å—æ–°è¿žæŽ¥ã€‚
 
-### 6.6 É¾³ý´¦Àí¹ýµÄ SelectionKey
+### 6. åˆ é™¤å¤„ç†è¿‡çš„ SelectionKey
 
-ÔÚ´¦Àí SelectionKey Ö®ºó£¬ÎÒÃÇ¼¸ºõ¿ÉÒÔ·µ»ØÖ÷Ñ­»·ÁË¡£µ«ÊÇÎÒÃÇ±ØÐëÊ×ÏÈ½«´¦Àí¹ýµÄ SelectionKey ´ÓÑ¡¶¨µÄ¼ü¼¯ºÏÖÐÉ¾³ý¡£Èç¹ûÎÒÃÇÃ»ÓÐÉ¾³ý´¦Àí¹ýµÄ¼ü£¬ÄÇÃ´ËüÈÔÈ»»áÔÚÖ÷¼¯ºÏÖÐÒÔÒ»¸ö¼¤»îµÄ¼ü³öÏÖ£¬Õâ»áµ¼ÖÂÎÒÃÇ³¢ÊÔÔÙ´Î´¦ÀíËü¡£ÎÒÃÇµ÷ÓÃµü´úÆ÷µÄ remove() ·½·¨À´É¾³ý´¦Àí¹ýµÄ SelectionKey£º
+åœ¨å¤„ç† SelectionKey ä¹‹åŽï¼Œæˆ‘ä»¬å‡ ä¹Žå¯ä»¥è¿”å›žä¸»å¾ªçŽ¯äº†ã€‚ä½†æ˜¯æˆ‘ä»¬å¿…é¡»é¦–å…ˆå°†å¤„ç†è¿‡çš„ SelectionKey ä»Žé€‰å®šçš„é”®é›†åˆä¸­åˆ é™¤ã€‚å¦‚æžœæˆ‘ä»¬æ²¡æœ‰åˆ é™¤å¤„ç†è¿‡çš„é”®ï¼Œé‚£ä¹ˆå®ƒä»ç„¶ä¼šåœ¨ä¸»é›†åˆä¸­ä»¥ä¸€ä¸ªæ¿€æ´»çš„é”®å‡ºçŽ°ï¼Œè¿™ä¼šå¯¼è‡´æˆ‘ä»¬å°è¯•å†æ¬¡å¤„ç†å®ƒã€‚æˆ‘ä»¬è°ƒç”¨è¿­ä»£å™¨çš„ remove() æ–¹æ³•æ¥åˆ é™¤å¤„ç†è¿‡çš„ SelectionKeyï¼š
 
 ```java
 it.remove();
 ```
 
-ÏÖÔÚÎÒÃÇ¿ÉÒÔ·µ»ØÖ÷Ñ­»·²¢½ÓÊÜ´ÓÒ»¸öÌ×½Ó×ÖÖÐ´«ÈëµÄÊý¾Ý(»òÕßÒ»¸ö´«ÈëµÄ I/O ÊÂ¼þ)ÁË¡£
+çŽ°åœ¨æˆ‘ä»¬å¯ä»¥è¿”å›žä¸»å¾ªçŽ¯å¹¶æŽ¥å—ä»Žä¸€ä¸ªå¥—æŽ¥å­—ä¸­ä¼ å…¥çš„æ•°æ® (æˆ–è€…ä¸€ä¸ªä¼ å…¥çš„ I/O äº‹ä»¶) äº†ã€‚
 
-### 6.7 ´«ÈëµÄ I/O
+### 7. ä¼ å…¥çš„ I/O
 
-µ±À´×ÔÒ»¸öÌ×½Ó×ÖµÄÊý¾Ýµ½´ïÊ±£¬Ëü»á´¥·¢Ò»¸ö I/O ÊÂ¼þ¡£Õâ»áµ¼ÖÂÔÚÖ÷Ñ­»·ÖÐµ÷ÓÃ Selector.select()£¬²¢·µ»ØÒ»¸ö»òÕß¶à¸ö I/O ÊÂ¼þ¡£ÕâÒ»´Î£¬ SelectionKey ½«±»±ê¼ÇÎª OP_READ ÊÂ¼þ£¬ÈçÏÂËùÊ¾£º
+å½“æ¥è‡ªä¸€ä¸ªå¥—æŽ¥å­—çš„æ•°æ®åˆ°è¾¾æ—¶ï¼Œå®ƒä¼šè§¦å‘ä¸€ä¸ª I/O äº‹ä»¶ã€‚è¿™ä¼šå¯¼è‡´åœ¨ä¸»å¾ªçŽ¯ä¸­è°ƒç”¨ Selector.select()ï¼Œå¹¶è¿”å›žä¸€ä¸ªæˆ–è€…å¤šä¸ª I/O äº‹ä»¶ã€‚è¿™ä¸€æ¬¡ï¼Œ SelectionKey å°†è¢«æ ‡è®°ä¸º OP_READ äº‹ä»¶ï¼Œå¦‚ä¸‹æ‰€ç¤ºï¼š
 
 ```java
 } else if ((key.readyOps() & SelectionKey.OP_READ)
@@ -397,10 +371,34 @@ it.remove();
 }
 ```
 
+## å†…å­˜æ˜ å°„æ–‡ä»¶
 
-# ²Î¿¼×ÊÁÏ
+å†…å­˜æ˜ å°„æ–‡ä»¶ I/O æ˜¯ä¸€ç§è¯»å’Œå†™æ–‡ä»¶æ•°æ®çš„æ–¹æ³•ï¼Œå®ƒå¯ä»¥æ¯”å¸¸è§„çš„åŸºäºŽæµæˆ–è€…åŸºäºŽé€šé“çš„ I/O å¿«å¾—å¤šã€‚
 
-- Eckel B, °£¿Ë¶û , ê»Åô , µÈ . Java ±à³ÌË¼Ïë [M]. »úÐµ¹¤Òµ³ö°æÉç , 2002.
-- [IBM: NIO ÈëÃÅ](https://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html)
-- [ ÉîÈë·ÖÎö Java I/O µÄ¹¤×÷»úÖÆ ](https://www.ibm.com/developerworks/cn/java/j-lo-javaio/index.html)
-- [NIO Óë´«Í³ IO µÄÇø±ð ](http://blog.csdn.net/shimiso/article/details/24990499)
+åªæœ‰æ–‡ä»¶ä¸­å®žé™…è¯»å–æˆ–è€…å†™å…¥çš„éƒ¨åˆ†æ‰ä¼šæ˜ å°„åˆ°å†…å­˜ä¸­ã€‚
+
+çŽ°ä»£æ“ä½œç³»ç»Ÿä¸€èˆ¬ä¼šæ ¹æ®éœ€è¦å°†æ–‡ä»¶çš„éƒ¨åˆ†æ˜ å°„ä¸ºå†…å­˜çš„éƒ¨åˆ†ï¼Œä»Žè€Œå®žçŽ°æ–‡ä»¶ç³»ç»Ÿã€‚Java å†…å­˜æ˜ å°„æœºåˆ¶åªä¸è¿‡æ˜¯åœ¨åº•å±‚æ“ä½œç³»ç»Ÿä¸­å¯ä»¥é‡‡ç”¨è¿™ç§æœºåˆ¶æ—¶ï¼Œæä¾›äº†å¯¹è¯¥æœºåˆ¶çš„è®¿é—®ã€‚
+
+å‘å†…å­˜æ˜ å°„æ–‡ä»¶å†™å…¥å¯èƒ½æ˜¯å±é™©çš„ï¼Œä»…åªæ˜¯æ”¹å˜æ•°ç»„çš„å•ä¸ªå…ƒç´ è¿™æ ·çš„ç®€å•æ“ä½œï¼Œå°±å¯èƒ½ä¼šç›´æŽ¥ä¿®æ”¹ç£ç›˜ä¸Šçš„æ–‡ä»¶ã€‚ä¿®æ”¹æ•°æ®ä¸Žå°†æ•°æ®ä¿å­˜åˆ°ç£ç›˜æ˜¯æ²¡æœ‰åˆ†å¼€çš„ã€‚
+
+ä¸‹é¢ä»£ç è¡Œå°†æ–‡ä»¶çš„å‰ 1024 ä¸ªå­—èŠ‚æ˜ å°„åˆ°å†…å­˜ä¸­ï¼Œmap() æ–¹æ³•è¿”å›žä¸€ä¸ª MappedByteBufferï¼Œå®ƒæ˜¯ ByteBuffer çš„å­ç±»ã€‚å› æ­¤ï¼Œæ‚¨å¯ä»¥åƒä½¿ç”¨å…¶ä»–ä»»ä½• ByteBuffer ä¸€æ ·ä½¿ç”¨æ–°æ˜ å°„çš„ç¼“å†²åŒºï¼Œæ“ä½œç³»ç»Ÿä¼šåœ¨éœ€è¦æ—¶è´Ÿè´£æ‰§è¡Œæ˜ å°„ã€‚
+
+```java
+MappedByteBuffer mbb = fc.map(FileChannel.MapMode.READ_WRITE, 0, 1024);
+```
+
+## å¯¹æ¯”
+
+NIO ä¸Žæ™®é€š I/O çš„åŒºåˆ«ä¸»è¦æœ‰ä»¥ä¸‹ä¸¤ç‚¹ï¼š
+
+- NIO æ˜¯éžé˜»å¡žçš„ã€‚åº”å½“æ³¨æ„ï¼ŒFileChannel ä¸èƒ½åˆ‡æ¢åˆ°éžé˜»å¡žæ¨¡å¼ï¼Œå¥—æŽ¥å­— Channel å¯ä»¥ã€‚
+- NIO é¢å‘å—ï¼ŒI/O é¢å‘æµã€‚
+
+# å…«ã€å‚è€ƒèµ„æ–™
+
+- Eckel B, åŸƒå…‹å°”, æ˜Šé¹, ç­‰. Java ç¼–ç¨‹æ€æƒ³ [M]. æœºæ¢°å·¥ä¸šå‡ºç‰ˆç¤¾, 2002.
+- [IBM: NIO å…¥é—¨](https://www.ibm.com/developerworks/cn/education/java/j-nio/j-nio.html)
+- [æ·±å…¥åˆ†æž Java I/O çš„å·¥ä½œæœºåˆ¶](https://www.ibm.com/developerworks/cn/java/j-lo-javaio/index.html)
+- [NIO ä¸Žä¼ ç»Ÿ IO çš„åŒºåˆ«](http://blog.csdn.net/shimiso/article/details/24990499)
+- [Decorator Design Pattern](http://stg-tud.github.io/sedc/Lecture/ws13-14/5.3-Decorator.html#mode=document)
+- [Socket Multicast](http://labojava.blogspot.com/2012/12/socket-multicast.html)
